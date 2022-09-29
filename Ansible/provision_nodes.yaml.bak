@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+
+  - name: Install required system packages
+    apt: name={{ item }} state=latest update_cache=yes
+    loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
+
+  - name: Add Docker GPG apt Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+
+  - name: Update apt and install docker-ce
+    apt: update_cache=yes name=docker-ce state=latest
+
+
+
+  - name: enable Docker services
+    service:
+      name: "docker"
+      state: started
+      enabled: yes
+
+  - name: Check if container is running
+<<<<<<< HEAD
+    shell: docker ps
+
+
+=======
+    shell: docker ps
+>>>>>>> b56c3893bae82ec04de9afa1b4962b3f6385953f
