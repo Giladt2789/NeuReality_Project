@@ -14,3 +14,13 @@
 
 - name: Update apt and install docker-ce
   apt: update_cache=yes name=docker-ce state=latest
+
+- name: install containerd
+  shell: |
+         sudo apt-get update && sudo apt-get install -y containerd
+         sudo mkdir -p /etc/containerd
+         sudo containerd config default | sudo tee /etc/containerd/config.toml
+         sudo systemctl restart containerd        
+         sudo systemctl unmask docker
+         sudo systemctl start docker
+  

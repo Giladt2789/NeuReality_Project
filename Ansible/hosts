@@ -1,4 +1,4 @@
 [K8S_Master]
-  ubuntu@ec2-18-193-149-65.eu-central-1.compute.amazonaws.com 
+  ubuntu@ec2-3-66-226-201.eu-central-1.compute.amazonaws.com
 [K8S_Node]
-  ubuntu@ec2-3-71-46-189.eu-central-1.compute.amazonaws.com
+  ubuntu@ec2-3-67-77-182.eu-central-1.compute.amazonaws.com

@@ -1,0 +1,33 @@
+---
+# prepare the nodes with updates
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - prerequisites
+
+#installing docker and containerd engines
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - Docker_install
+
+#making sure the docker service is enabled
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - enable_dockersvc
+
+#installing K8S
+- hosts: "K8S_Master, K8S_Node"
+  become: yes
+  remote_user: ubuntu
+  become_method: sudo
+  become_user: root
+  gather_facts: yes
+  roles:
+    - install_K8S
+
+
