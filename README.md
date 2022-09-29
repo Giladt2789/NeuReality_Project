@@ -27,6 +27,8 @@ App base port - 8182 (see assumptions above)
 HTTP - all
 
 ## Ansible roles and playbook
+Configured each step as role, with the proper tasks directory (inside these directories are each task/s). <br/>
+### K8S isn't installed yet
 
 ## K8S deployment
 
