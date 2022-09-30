@@ -10,8 +10,8 @@ variable "aws_key_pair" {
   default     = "GRKeypair"
 }
 
-variable "instance_name" {
-  description = "Pre-defined name for both of the EC2 instances"
+variable "personal_ip" {
+  description = "my local ip address, so i can control my infrastructure"
   type        = string
-  default     = "NeuReality_Nodes"
+  default     = "46.121.252.41/32"
 }
