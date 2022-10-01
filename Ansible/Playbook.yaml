@@ -30,4 +30,14 @@
   roles:
     - K8S_join_worker_nodes
 
+- hosts: "K8S_Master"
+  remote_user: kube
+  become: yes
+  become_method: sudo
+  become_user: kube
+  gather_facts: yes
+  connection: ssh
+  roles:
+    - K8S_deployment
+
 ...

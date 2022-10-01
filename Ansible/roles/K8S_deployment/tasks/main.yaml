@@ -1,16 +1,8 @@
----
-- hosts: "K8S_Master"
-  remote_user: kube
-  become: yes
-  become_method: sudo
-  become_user: kube
-  gather_facts: yes
-  connection: ssh
+- name: applying nginx ingress controller (from official nginx github)
+  command: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml -n ingress-nginx
 
-  tasks:
+- name: delete the webhookconfiguration since it ain't relevant for the process
+  command: kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 
-  - name: applying nginx ingress controller (from official nginx github)
-    command: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml -n ingress-nginx
-
-  - name: creating the python app deployment (including the service as NodePort) on the cluster
-    command: kubectl apply -f https://raw.githubusercontent.com/Giladt2789/NeuReality_Project/main/K8S/deploy.yaml
+- name: creating the python app deployment (including the service as NodePort) on the cluster
+  command: kubectl apply -f https://raw.githubusercontent.com/Giladt2789/NeuReality_Project/main/K8S/deploy.yaml
