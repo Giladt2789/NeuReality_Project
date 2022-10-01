@@ -23,19 +23,19 @@ The only variables that the user should provide is: <br/>
 The security group created for this project containing these ports: <br/>
 
 ### Ingress - global:
-SSH - port 20
-HTTP - port 80
-App base port - 8182 (see assumptions above)
-ansible ping module (rides on the icmp protocol) - port 8 (this is for personal testing uses)
+SSH - port 20<br/>
+HTTP - port 80<br/>
+App base port - 8182 (see assumptions above)<br/>
+ansible ping module (rides on the icmp protocol) - port 8 (this is for personal testing uses)<br/>
 ### Ingress - K8S: (the entire ports map are given in the official K8S website: https://kubernetes.io/docs/reference/ports-and-protocols/)
-Kubernetes API server port - 6443
-etcd server client API ports - 2379-2380
-Kubelet API port - 10250
-kube-scheduler - 10259
-kube-controller-manager - 10257
-NodePort services ports - 30000-32767
+Kubernetes API server port - 6443<br/>
+etcd server client API ports - 2379-2380<br/>
+Kubelet API port - 10250<br/>
+kube-scheduler - 10259<br/>
+kube-controller-manager - 10257<br/>
+NodePort services ports - 30000-32767<br/>
 ### egress:
-HTTP - all
+HTTP - all<br/>
 
 Upon creating the infrastructure, the public ip addresses of the new vm's should appear on screen.<br/>
 Those ip addresses should be written to the ansible hosts file (located at: /etc/ansible/hosts)
