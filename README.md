@@ -38,13 +38,14 @@ HTTP - all
 
 Upon creating the infrastructure, the public ip addresses of the new vm's should appear on screen.<br/>
 Those ip addresses should be written to the ansible hosts file (located at: /etc/ansible/hosts)
+
 ## Ansible roles and playbook
-In order to connect to those vm's in order to run the ansible playbooks, the private key should be provided in the configuration file at (/home/<user_name>/.ansible.cfg) <br/>
+In order to connect to those vm's to run the ansible playbooks, the private key should be provided in the configuration file at (/home/<user_name>/.ansible.cfg) <br/>
 Configured each step as role, with the proper tasks directory (inside these directories are each task/s). Task list:<br/>
-1. We need to run a local update for the system in order to work on the most recent updates of the OS<br/>
-2. We need to create a dedicated user for the installation and management of K8S and docker/containerd (so that we don't work with root). In this role it is prompted the user to define the new user name. <br/>
-3. Now we install the K8S as a whole on the cluster
-4. Now we configure the master node, and afterwards the workers (in our case - 1 master, 1 worker)
+1. We need to create a dedicated user for the installation and management of K8S and docker/containerd (so that we don't work with root). In this role it is prompted the user to define the new user name. i chose the name: kube, but you can choose as you like <br/>
+2. Then we install some packages, including updating the OS (as much as needed), installing docker, containerd and so on. <br/>
+3. Now, i've initialized the cluster (with the role under the same name). the network supplier for the cluster that i chose was calico, but with specific modification - you can choose another (like Weave, Flannel and so on).
+4. After initializing the cluster, the master will create a token command and will address this to the worker node/s. Afterwards - the cluster is complete.
 
 ## K8S deployment
 
