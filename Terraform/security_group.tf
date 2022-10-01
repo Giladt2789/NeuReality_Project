@@ -2,7 +2,7 @@ resource "aws_security_group" "neureality_sg" {
   name        = "neureality_sg"
   vpc_id      = data.aws_vpc.main.id
 
-  #Incoming traffic
+  #Controlling via SSH
   ingress {
     from_port   = 22
     to_port     = 22
@@ -10,6 +10,14 @@ resource "aws_security_group" "neureality_sg" {
     cidr_blocks = [var.personal_ip]
   }
 
+    ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [var.personal_ip]
+  }
+
+  #Incoming traffic
   ingress {
     from_port   = 80
     to_port     = 80
