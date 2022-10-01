@@ -43,7 +43,7 @@ Those ip addresses should be written to the ansible hosts file (located at: /etc
 
 ## Ansible roles and playbook
 In order to connect to those vm's to run the ansible playbooks, the private key should be provided in the configuration file at (/home/<user_name>/.ansible.cfg) <br/>
-Before everything, the dedicated user (that controls the infrastructure) should go to: /etc/ansible/hosts and insert the following:<br/>
+Before everything, the dedicated user (that controls the infrastructure) should go to the ansible inventory at: /etc/ansible/hosts and insert the following:<br/>
 [K8S_Master]<br/>
   default_os_user@public_ipv4_dns <br/>
 [K8S_Nodes] <br/>
@@ -70,6 +70,5 @@ k8s.node.ip.address:31590/reverse?q=string%20to%20reverse <br/>
 (as mentioned above: 31590 - the port that k8s exposes from the app)<br/>
 and the output should be:
 {"Result": "reverse to string"}
-
 
 
