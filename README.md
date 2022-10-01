@@ -51,9 +51,9 @@ Before everything, the dedicated user (that controls the infrastructure) should 
 ------------------------------------------------<br/>
 For example, this is how i did it on my machine: (don't worry, these ip's aren't valid anymore)<br/>
 [K8S_Master]<br/>
-  ubuntu@ec2-18-156-199-195.eu-central-1.compute.amazonaws.com 
+  ubuntu@ec2-18-156-199-195.eu-central-1.compute.amazonaws.com <br/>
 [K8S_Nodes] <br/>
-  ubuntu@ec2-3-66-210-81.eu-central-1.compute.amazonaws.com
+  ubuntu@ec2-3-66-210-81.eu-central-1.compute.amazonaws.com<br/>
 
 Upon doing this, and copying the following file (from this repo): <.ansible.cfg> to the location: </home/USER/>.<br/>
 Now, with each step configured as role, with the proper tasks directory (inside these directories are each task/s) we can run the Playbook.yaml file. Task list:<br/>
