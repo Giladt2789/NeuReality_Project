@@ -1,0 +1,16 @@
+---
+- hosts: "K8S_Master"
+  remote_user: kube
+  become: yes
+  become_method: sudo
+  become_user: kube
+  gather_facts: yes
+  connection: ssh
+
+  tasks:
+
+  - name: applying nginx ingress controller (from official nginx github)
+    command: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml -n ingress-nginx
+
+  - name: creating the python app deployment (including the service as NodePort) on the cluster
+    command: kubectl apply -f https://raw.githubusercontent.com/Giladt2789/NeuReality_Project/main/K8S/deploy.yaml
