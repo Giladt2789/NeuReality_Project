@@ -3,6 +3,7 @@
 ## Assumptions i've made for the project
 1. The open port for the application is 8182<br/>
 2. The OS for the instances was defined as Ubuntu Linux 20.04 (ami-0149b2da6ceec4bb0)
+   (note: this ami is valid via eu-central-1)
 3. For convenience purposes i've decided to open the same ports in K8S cluster for both the Master and the workers 
 
 ## Python application
