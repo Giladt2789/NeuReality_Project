@@ -1,33 +1,33 @@
 ---
-# prepare the nodes with updates
-- hosts: all
-  become: yes
-  become_method: sudo
-  roles:
-    - prerequisites
 
-#installing docker and containerd engines
-- hosts: all
-  become: yes
-  become_method: sudo
-  roles:
-    - Docker_install
-
-#making sure the docker service is enabled
-- hosts: all
-  become: yes
-  become_method: sudo
-  roles:
-    - enable_dockersvc
-
-#installing K8S
 - hosts: "K8S_Master, K8S_Node"
   become: yes
+  vars_prompt:
+   - name: "new_user"
+     prompt: "Account need to be create in remote server."
+     private: no
+  roles:
+    - create_user
+
+- hosts: "K8S_Master, K8S_Node"
   remote_user: ubuntu
+  become: yes
   become_method: sudo
   become_user: root
   gather_facts: yes
+  connection: ssh
   roles:
-    - install_K8S
+    - K8S_install
 
+- hosts: "K8S_Master"
+  become: yes
+  roles:
+    - K8S_cluster_init
 
+- hosts: "K8S_Node"
+  become: yes
+  gather_facts: yes
+  roles:
+    - K8S_join_worker_nodes
+
+...
