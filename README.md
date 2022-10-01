@@ -27,7 +27,8 @@ SSH - port 20<br/>
 HTTP - port 80<br/>
 App base port - 8182 (see assumptions above)<br/>
 ansible ping module (rides on the icmp protocol) - port 8 (this is for personal testing uses)<br/>
-### Ingress - K8S: (the entire ports map are given in the official K8S website: https://kubernetes.io/docs/reference/ports-and-protocols/)
+### Ingress - K8S:
+(the entire ports map are given in the official K8S website: https://kubernetes.io/docs/reference/ports-and-protocols/)<br/>
 Kubernetes API server port - 6443<br/>
 etcd server client API ports - 2379-2380<br/>
 Kubelet API port - 10250<br/>
