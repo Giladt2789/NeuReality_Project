@@ -32,13 +32,6 @@ resource "aws_security_group" "neureality_sg" {
     cidr_blocks = [var.personal_ip]
   }
 
-  ingress {
-    from_port   = 8
-    to_port     = 0
-    protocol    = "icmp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   #Kubernetes API server port
   ingress {
     from_port   = 6443

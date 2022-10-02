@@ -1,4 +1,4 @@
-[K8S_Master]
-  ubuntu@ec2-3-66-226-201.eu-central-1.compute.amazonaws.com
-[K8S_Node]
-  ubuntu@ec2-3-67-77-182.eu-central-1.compute.amazonaws.com
+[K8S_Master]<br/>
+  default_os_user@public_ipv4_dns
+[K8S_Nodes] <br/>
+  default_os_user@public_ipv4_dns

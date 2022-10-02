@@ -77,4 +77,3 @@
   service:
     name: kubelet
     enabled: yes
-

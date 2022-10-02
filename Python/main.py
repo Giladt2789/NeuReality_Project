@@ -8,9 +8,7 @@ app = Flask(__name__)
 def home():
     if request.method == 'GET':
         string = request.args.get('q')
-        print(string)
         backwords = functions.reverse_string(string)
-        print(backwords)
         d = dict([ ("Result", backwords) ])
         return render_template('reverse.html', backwords = json.dumps(d))
 

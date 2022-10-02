@@ -41,7 +41,7 @@ metadata:
 spec:
   ingressClassName: ingress-nginx
   rules:
-  -  http:
+  - http:
       paths:
       - path: /reverse
         pathType: Prefix

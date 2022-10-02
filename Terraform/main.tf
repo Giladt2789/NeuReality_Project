@@ -21,7 +21,7 @@ resource "aws_instance" "app_server" {
   # Creates four identical aws ec2 instances
   count = 2
 
-  ami             = "ami-06148e0e81e5187c8"
+  ami             = var.ami_id
   instance_type   = "t3.medium"
   key_name        = var.aws_key_pair
   vpc_security_group_ids = [aws_security_group.neureality_sg.id]
@@ -33,6 +33,6 @@ resource "aws_instance" "app_server" {
     type        = "ssh"
     user        = "ubuntu"
     host        = self.public_ip
-    private_key = file("/home/gilad/Documents/Private/GRKeypair.pem")
+    private_key = file(var.location_of_key)
   }
 }
