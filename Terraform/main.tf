@@ -21,9 +21,9 @@ resource "aws_instance" "app_server" {
   # Creates four identical aws ec2 instances
   count = 2
 
-  ami             = var.ami_id
-  instance_type   = "t3.medium"
-  key_name        = var.aws_key_pair
+  ami                    = var.ami_id
+  instance_type          = "t3.medium"
+  key_name               = var.aws_key_pair
   vpc_security_group_ids = [aws_security_group.neureality_sg.id]
   tags = {
     Name = "K8S No. ${count.index}"
