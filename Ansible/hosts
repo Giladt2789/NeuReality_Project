@@ -1,4 +1,4 @@
-[K8S_Master]<br/>
+[K8S_Master]
   default_os_user@public_ipv4_dns
-[K8S_Nodes] <br/>
+[K8S_Nodes]
   default_os_user@public_ipv4_dns
